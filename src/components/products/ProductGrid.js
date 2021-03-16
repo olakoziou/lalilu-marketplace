@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import ProductSmallCard from './ProductSmallCard';
+import ProductSmallCard from './smallCardGrid/ProductSmallCard';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import { productsState, getData, fetchApi } from '../../../redux/productsSlice';
+import { productsState, getData, fetchApi } from '../../redux/productsSlice';
 
 const GridDiv = styled.div`
   display: flex;
