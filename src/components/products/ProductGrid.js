@@ -18,7 +18,7 @@ function ProductGrid() {
 
   useEffect(() => {
     dispatch(fetchApi());
-  }, [dispatch]);
+  }, []);
   return (
     <GridDiv className="product-grid">
       {products.map((product) => (

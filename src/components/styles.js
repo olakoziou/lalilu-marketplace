@@ -1,8 +1,10 @@
 // colors
 export const colors = {
-  pink1: '245, 99, 66',
+  pink1: '224, 105, 105',
+  pink2: '230, 119, 119',
   darkgrey1: '54, 54, 54',
   darkgrey2: '74, 74, 74',
+  lightgrey1: '250, 250, 250',
 };
 
 // boxShadow
@@ -11,9 +13,9 @@ export const boxShadow = (size, color = colors.darkgrey1) => {
   if (size === 'small') {
     return `0 2px 10px -8px rgba(${color})`;
   } else if (size === 'medium') {
-    return `0 2px 12px -7px rgba(${color})`;
+    return `0 2px 11px -7px rgba(${color})`;
   } else if (size === 'big') {
-    return `0 2px 13px -6px rgba(${color})`;
+    return `0 2px 12px -6px rgba(${color})`;
   }
 };
 

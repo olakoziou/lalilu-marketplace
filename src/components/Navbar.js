@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
+import { changeMain, navState } from '../redux/navSlice';
 import { boxShadow, breakpoints, colors } from './styles';
 
 const NavbarDiv = styled.div`
@@ -19,7 +21,8 @@ const NavbarDiv = styled.div`
       justify-content: center;
 
       li {
-        padding: 5px 10px;
+        padding: 8px;
+        margin-top: 4px 0;
       }
     }
   }
@@ -87,6 +90,24 @@ const NavbarDiv = styled.div`
 `;
 
 function Navbar() {
+  const [state, setState] = useState({ active: 'top' });
+  const navigation = useSelector(navState);
+  const dispatch = useDispatch();
+
+  const handleClick = (e) => {
+    const active = e.target.dataset.name;
+    const items = Array.from(e.target.parentNode.children);
+    const clicked = e.target;
+
+    setState({ active });
+    items.forEach((item) => item.classList.remove('active'));
+    clicked.classList.add('active');
+  };
+
+  useEffect(() => {
+    dispatch(changeMain(state.active));
+  }, [state]);
+
   return (
     <NavbarDiv className="navbar">
       <div className="login-panel">
@@ -104,10 +125,18 @@ function Navbar() {
       <div className="navigation">
         <nav>
           <ul>
-            <li className="active">Główna</li>
-            <li>Kategorie</li>
-            <li>Prasa</li>
-            <li>Wyprzedaż</li>
+            <li className="active" data-name="top" onClick={handleClick}>
+              Główna
+            </li>
+            <li data-name="categories" onClick={handleClick}>
+              Kategorie
+            </li>
+            <li data-name="news" onClick={handleClick}>
+              Prasa
+            </li>
+            <li data-name="sale" onClick={handleClick}>
+              Wyprzedaż
+            </li>
           </ul>
         </nav>
       </div>
