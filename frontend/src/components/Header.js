@@ -89,7 +89,7 @@ const Head = styled.header`
       border-radius: 50%;
       transform: scale(0);
       opacity: 0.5;
-      transition: all 1s;
+      transition: all 0.8s 0.2s;
 
       &.open {
         opacity: 1;
@@ -106,21 +106,11 @@ const Head = styled.header`
       border-radius: 50%;
       margin-top: -39px;
 
+      transform: translateX(100%);
+      transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
       &.open {
-        animation: navSlideIn 2s;
-      }
-
-      @keyframes navSlideIn {
-        0% {
-          transform: translateX(100%);
-        }
-
-        90% {
-          transform: translateX(-10%);
-        }
-        100% {
-          transform: translateX(0);
-        }
+        transform: translateX(0);
       }
 
       ul {
