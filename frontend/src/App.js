@@ -14,6 +14,8 @@ const AppDiv = styled.div`
   position: relative;
   min-height: 200vh;
   min-width: 100%;
+  overflow: hidden;
+
   &::after {
     content: '';
     position: fixed;
@@ -32,15 +34,15 @@ function App() {
     <AppDiv className="App">
       <GlobalStyles />
       <Header />
-      <Container>
-        <Router>
-          <Switch>
-            <Route exact path="/">
-              <HomePage />
-            </Route>
-          </Switch>
-        </Router>
-      </Container>
+
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <HomePage />
+          </Route>
+        </Switch>
+      </Router>
+
       <Footer />
     </AppDiv>
   );

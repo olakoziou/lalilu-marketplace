@@ -107,10 +107,12 @@ const Head = styled.header`
       margin-top: -39px;
 
       transform: translateX(100%);
+      visibility: hidden;
       transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
       &.open {
         transform: translateX(0);
+        visibility: visible;
       }
 
       ul {
