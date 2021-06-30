@@ -2,8 +2,10 @@
 export const colors = {
   mainblue: '203, 245, 248',
   pink2: '230, 119, 119',
+  yellow: '244, 175, 27',
   darkgrey1: '54, 54, 54',
   darkgrey2: '74, 74, 74',
+  darkgrey3: '88, 88, 88',
   lightgrey1: '250, 250, 250',
   lightgrey2: '245, 245, 245',
   lightgrey3: '240, 240, 240',
@@ -13,7 +15,9 @@ export const colors = {
 // boxShadow
 
 export const boxShadow = (size, color = colors.darkgrey1) => {
-  if (size === 'small') {
+  if (size === 'xsmall') {
+    return `0 2px 7px -6px rgba(${color})`;
+  } else if (size === 'small') {
     return `0 2px 10px -8px rgba(${color})`;
   } else if (size === 'medium') {
     return `0 2px 11px -7px rgba(${color})`;

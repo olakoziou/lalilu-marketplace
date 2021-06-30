@@ -5,7 +5,7 @@ import { breakpoints, colors } from './styles';
 const ContainerDiv = styled.div`
   font-family: 'Montserrat', sans-serif;
   color: rgba(${colors.darkgrey1});
-  width: 90%;
+  width: 95%;
   margin: 0 auto;
   position: relative;
 
