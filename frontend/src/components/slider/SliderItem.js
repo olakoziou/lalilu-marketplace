@@ -9,8 +9,6 @@ const Item = styled.div`
   min-width: 100%;
   min-height: 100%;
 
-  position: absolute;
-
   .image {
     background-image: url(${img});
     background-position: center;
@@ -50,17 +48,12 @@ const Item = styled.div`
   }
 `;
 
-function SliderItem({ title }) {
+function SliderItem({ active, title, numb }) {
+  // console.log(active);
   return (
-    <Item className="slider">
+    <Item active={active} numb={numb} className="slider">
       <div className="image">
         <div className="title">{title}</div>
-        <div className="dots">
-          <div className="dot"></div>
-          <div className="dot"></div>
-          <div className="dot"></div>
-          <div className="dot"></div>
-        </div>
       </div>
     </Item>
   );

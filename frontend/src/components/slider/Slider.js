@@ -11,25 +11,6 @@ const SliderDiv = styled.div`
   position: relative;
   margin: 50px auto;
 
-  /* .slider-background {
-    width: 100%;
-    height: 80%;
-    background-color: rgba(${colors.lightgrey4});
-    position: absolute;
-    top: 0;
-    right: -5%;
-  } */
-
-  /* .slider-frame {
-    border: 1px solid #000;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    bottom: 5%;
-    right: -8%;
-    z-index: 1000;
-  } */
-
   .arrows {
     width: 100%;
     position: absolute;
@@ -54,9 +35,17 @@ const SliderDiv = styled.div`
   }
 
   .slider-list {
-    display: flex;
     width: 100%;
     height: 100%;
+
+    overflow: hidden;
+
+    &__items {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: all 0.2s;
+    }
   }
 `;
 
@@ -68,40 +57,52 @@ function Slider() {
     { id: 4, title: 'ciekawy tytuł artykułu 4' },
   ]);
   const [loaded, setLoaded] = useState(false);
+  const [active, setActive] = useState(0);
+  const [prev, setPrev] = useState();
 
-  let activeSlide = 0;
   const slidersLength = sliderArray.length;
-  let sliderItems;
+  let sliderList = document.querySelector('.slider-list .slider-list__items');
 
   useEffect(() => {
-    sliderItems = Array.from(document.querySelectorAll('.slider-list .slider'));
     setLoaded(true);
-  }, []);
+    console.log(active);
+    console.log(slidersLength - 1);
+    if (loaded) sliderList.style.transform = `translateX(-${active * 100}%)`;
+  }, [active]);
 
-  const handleLeftArrow = (e) => {};
+  const handleLeftArrow = (e) => {
+    if (active > 0) {
+      setActive((prev) => prev - 1);
+      sliderList.style.transform = `translateX(-${active * 100}%)`;
+    }
+  };
 
   const handleRightArrow = (e) => {
-    console.log(sliderArray);
-    activeSlide++;
-
-    sliderItems[activeSlide].style.transform = 'translateX(-100%)';
+    if (active < slidersLength - 1) {
+      setActive((prev) => prev + 1);
+      sliderList.style.transform = `translateX(-${active * 100}%)`;
+    }
   };
 
   // <SliderList i tu w propsach sliderArray i activeSlide; margin={id*activeSlide}
 
   return (
     <SliderDiv>
-      <div className="slider-background"></div>
-      <div className="slider-frame"></div>
       <div className="arrows">
         <i className="fa fa-chevron-left" onClick={handleLeftArrow}></i>
         <i className="fa fa-chevron-right" onClick={handleRightArrow}></i>
       </div>
       <div className="slider-list">
-        {loaded &&
-          sliderArray.map((item) => (
-            <SliderItem title={item.title} key={item.id} />
+        <div className="slider-list__items">
+          {sliderArray.map((item, i) => (
+            <SliderItem
+              title={item.title}
+              key={item.id}
+              numb={i}
+              active={active}
+            />
           ))}
+        </div>
       </div>
     </SliderDiv>
   );
