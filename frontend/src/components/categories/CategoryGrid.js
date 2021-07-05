@@ -4,6 +4,10 @@ import styled from 'styled-components';
 
 const CatDiv = styled.div`
   /* z-index: 1000; */
+  h4 {
+    text-align: center;
+    font-size: 22px;
+  }
   padding: 30px 0;
   .categories-list {
     display: flex;

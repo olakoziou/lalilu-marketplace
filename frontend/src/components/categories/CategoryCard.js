@@ -1,14 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 import img from '../../assets/clothes.png';
-import { boxShadow, colors } from '../styles';
+import { boxShadow, breakpoints, colors } from '../styles';
 
 const CatCard = styled.div`
   display: flex;
-  margin: 50px 10px;
+  margin: 30px 10px;
   position: relative;
   z-index: 1000;
-  width: calc(45% - 20px);
+  width: 70%;
+  min-width: 200px;
+  max-width: 280px;
+  min-height: 100px;
+
+  @media ${breakpoints('xsm')} {
+    width: calc(45% - 20px);
+  }
+
+  @media ${breakpoints('sm')} {
+    min-height: 120px;
+  }
 
   .icon {
     max-width: 80px;
@@ -23,7 +34,6 @@ const CatCard = styled.div`
   .title {
     background-color: transparent;
     width: 100%;
-    min-height: 100px;
     border: 1px solid rgba(${colors.darkgrey3});
     position: relative;
     display: flex;

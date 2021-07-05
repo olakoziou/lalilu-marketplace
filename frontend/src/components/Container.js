@@ -11,6 +11,10 @@ const ContainerDiv = styled.div`
 
   background-position: center;
   background-size: contain;
+
+  @media ${breakpoints('sm')} {
+    width: 90%;
+  }
 `;
 
 function Container(props) {

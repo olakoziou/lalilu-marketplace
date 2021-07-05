@@ -18,7 +18,7 @@ const GridBox = styled.div`
   h4.title {
     padding: 20px 10px;
     text-align: center;
-    font-size: 18px;
+    font-size: 22px;
   }
 
   .product-list {
