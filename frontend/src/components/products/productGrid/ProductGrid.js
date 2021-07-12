@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import { fetchProducts } from '../../../redux/productsSlice';
 import { boxShadow, colors } from '../../styles';
 import ProductSmallCard from './ProductSmallCard';
 
@@ -50,10 +53,11 @@ const GridBox = styled.div`
   }
 `;
 
-function ProductGrid() {
+function ProductGrid({ products, title, children }) {
   return (
     <GridBox className="product-grid">
-      <h4 className="title">najchętniej oglądane produkty</h4>
+      {children}
+      <h4 className="title">{title}</h4>
       <div className="more-products">
         <div className="arrows">
           <i className="fa fa-chevron-left"></i>
@@ -61,11 +65,10 @@ function ProductGrid() {
         </div>
       </div>
       <div className="product-list">
-        <ProductSmallCard />
-        <ProductSmallCard />
-        <ProductSmallCard />
-        <ProductSmallCard />
-        <ProductSmallCard />
+        {products &&
+          products.map((product) => (
+            <ProductSmallCard data={product} key={product._id} />
+          ))}
       </div>
       {/* <button className="load-more">więcej</button> */}
     </GridBox>

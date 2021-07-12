@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { boxShadow, breakpoints, colors } from '../../styles';
-import img from '../../../assets/img1.webp';
-import img2 from '../../../assets/img2.jpg';
 
 const SmallCard = styled.div`
   min-height: 200px;
@@ -22,7 +20,7 @@ const SmallCard = styled.div`
     height: 200px;
     width: 100%;
 
-    background-image: url(${img2});
+    background-image: ${(props) => `url(${props.img})`};
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -33,11 +31,11 @@ const SmallCard = styled.div`
       margin: 4px 0;
     }
     .title {
-      font-weight: 700;
+      font-size: 12px;
     }
     .shop-name {
+      font-weight: 700;
       color: rgba(${colors.darkgrey3});
-      font-size: 14px;
     }
     .prices {
       display: flex;
@@ -82,16 +80,20 @@ const SmallCard = styled.div`
   }
 `;
 
-function ProductSmallCard() {
+function ProductSmallCard({ data }) {
+  const name =
+    data.name.length > 30 ? data.name.slice(0, 30) + '...' : data.name;
+
   return (
-    <SmallCard className="product-list__item">
+    <SmallCard img={data.mainImageUrl} className="product-list__item">
       <div className="image">{/* <img src={img2} alt="" /> */}</div>
       <div className="details">
-        <div className="title">buty niemowlęce</div>
-        <div className="shop-name">domodi</div>
+        <div className="shop-name">{data.shopName}</div>
+        <div className="title">{name}</div>
+
         <div className="prices">
-          <div className="prices__regular">79 zł</div>
-          <div className="prices__sale">59 zł</div>
+          <div className="prices__regular">{data.price} zł</div>
+          <div className="prices__sale"> {data.salePrice} zł</div>
         </div>
         <div className="btns">
           <div className="quick-view">

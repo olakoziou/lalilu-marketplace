@@ -1,0 +1,22 @@
+{
+  "name": "lalilu-marketplace",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd frontend && npm start\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olakoziou/lalilu-marketplace.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/olakoziou/lalilu-marketplace/issues"
+  },
+  "homepage": "https://github.com/olakoziou/lalilu-marketplace#readme",
+  "devDependencies": {
+    "concurrently": "^6.2.0"
+  }
+}

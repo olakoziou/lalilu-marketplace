@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
+import CategoryPage from './pages/CategoryPage';
 
 import GlobalStyles from './globalStyles';
 import styled from 'styled-components';
@@ -12,7 +13,7 @@ import { colors } from './components/styles';
 
 const AppDiv = styled.div`
   position: relative;
-  min-height: 200vh;
+  /* min-height: 200vh; */
   min-width: 100%;
   overflow: hidden;
 
@@ -35,13 +36,18 @@ function App() {
       <GlobalStyles />
       <Header />
 
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <HomePage />
-          </Route>
-        </Switch>
-      </Router>
+      <Container>
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <HomePage />
+            </Route>
+            <Route path="/kategorie/:name">
+              <CategoryPage />
+            </Route>
+          </Switch>
+        </Router>
+      </Container>
 
       <Footer />
     </AppDiv>

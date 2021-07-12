@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import img from '../../assets/clothes.png';
 import { boxShadow, breakpoints, colors } from '../styles';
+import { Link } from 'react-router-dom';
 
 const CatCard = styled.div`
   display: flex;
@@ -55,13 +56,16 @@ const CatCard = styled.div`
   }
 `;
 
-function CategoryCard() {
+function CategoryCard({ data }) {
+  const url = data.name.toLowerCase();
   return (
     <CatCard>
       <div className="icon">
         <img src={img} alt="" />
       </div>
-      <div className="title">ubrania</div>
+      <div className="title">
+        <Link to={`/kategorie/${url}`}>{data.name}</Link>
+      </div>
     </CatCard>
   );
 }
