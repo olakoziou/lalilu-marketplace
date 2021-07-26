@@ -17,8 +17,9 @@ function Top() {
     <>
       <ProductGrid
         title="najchętniej oglądane produkty"
-        reduce={4}
+        limit={4}
         products={state.items.products}
+        arrows={true}
       />
     </>
   );

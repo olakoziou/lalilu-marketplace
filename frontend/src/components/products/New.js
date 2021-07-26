@@ -15,7 +15,7 @@ function New() {
 
   return (
     <>
-      <ProductGrid title="nowości" reduce={4} products={state.items.products} />
+      <ProductGrid title="nowości" limit={4} products={state.items.products} arrows={true} />
     </>
   );
 }

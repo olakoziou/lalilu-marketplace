@@ -16,13 +16,13 @@ export const colors = {
 
 export const boxShadow = (size, color = colors.darkgrey1) => {
   if (size === 'xsmall') {
-    return `0 2px 7px -6px rgba(${color})`;
+    return `0 1px 7px -5px rgba(${color})`;
   } else if (size === 'small') {
-    return `0 2px 10px -8px rgba(${color})`;
+    return `0 1px 10px -6px rgba(${color})`;
   } else if (size === 'medium') {
-    return `0 2px 11px -7px rgba(${color})`;
+    return `0 1px 11px -7px rgba(${color})`;
   } else if (size === 'big') {
-    return `0 2px 12px -6px rgba(${color})`;
+    return `0 1px 12px -1px rgba(${color})`;
   }
 };
 

@@ -1,44 +1,24 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import React from 'react';
 import styled from 'styled-components';
-import { fetchProducts } from '../../../redux/productsSlice';
+import LightBgc from '../../LightBgc';
 import { boxShadow, colors } from '../../styles';
 import ProductSmallCard from './ProductSmallCard';
 
 const GridBox = styled.div`
-  min-height: 300px;
-  background-color: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
-  margin: 20px 0;
-  padding: 20px 0;
-  border-radius: 6px;
-  box-shadow: ${boxShadow('small')};
-
   display: flex;
   flex-direction: column;
+  transition: all .5s;
 
-  h4.title {
+  .products-header {
+    .products__title {
     padding: 20px 10px;
     text-align: center;
     font-size: 22px;
   }
 
-  .product-list {
-    display: flex;
-    flex-wrap: wrap;
-  }
 
-  /* button.load-more {
-    width: 30%;
-    max-width: 200px;
-    margin: 25px auto 15px;
-    padding: 5px 0;
-    font-size: 18px;
-  } */
-
-  .more-products {
-    .arrows {
+  .products__arrows {
+    div {
       display: flex;
       justify-content: flex-end;
       width: calc(100% - 20px);
@@ -51,26 +31,37 @@ const GridBox = styled.div`
       }
     }
   }
+  
+  }
+  .products-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
 `;
 
-function ProductGrid({ products, title, children }) {
+function ProductGrid({ products, title, arrows, children }) {
   return (
     <GridBox className="product-grid">
+        <LightBgc>
+      <div className="products-header">
       {children}
-      <h4 className="title">{title}</h4>
-      <div className="more-products">
-        <div className="arrows">
+      <h4 className="products__title">{title}</h4>
+      {arrows && <div className="products__arrows">
+        <div>
           <i className="fa fa-chevron-left"></i>
           <i className="fa fa-chevron-right"></i>
         </div>
+      </div>}
       </div>
-      <div className="product-list">
+      <div className="products-list">
         {products &&
           products.map((product) => (
             <ProductSmallCard data={product} key={product._id} />
           ))}
       </div>
+      {!arrows && <div className="products__load-more"> load more</div>}
       {/* <button className="load-more">więcej</button> */}
+    </LightBgc>
     </GridBox>
   );
 }

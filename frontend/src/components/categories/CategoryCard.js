@@ -53,6 +53,10 @@ const CatCard = styled.div`
       background-color: rgba(${colors.yellow});
       z-index: -100;
     }
+
+    a {
+      text-decoration: none;
+    }
   }
 `;
 
@@ -64,7 +68,7 @@ function CategoryCard({ data }) {
         <img src={img} alt="" />
       </div>
       <div className="title">
-        <Link to={`/kategorie/${url}`}>{data.name}</Link>
+        <Link to={`/kategorie/${url}`}>{data.name.toLowerCase()}</Link>
       </div>
     </CatCard>
   );
