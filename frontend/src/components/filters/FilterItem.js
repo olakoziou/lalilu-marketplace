@@ -19,7 +19,7 @@ const Item = styled.div`
   }
 
   .filter-item__details {
-    padding: 30px 0;
+    padding: 10px 0;
     transition: all 0.5s;
     min-height: 100px;
     height: ${(props) => (props.show ? '100px' : '0')};

@@ -19,7 +19,7 @@ export const fetchCategoryProducts = (category) => {
       const response = await axios(`/api/products?category=${category}`);
 
       const data = await response.data.data;
-      console.log(data);
+      // console.log(data);
       dispatch(getProducts(data));
     } catch {}
   };

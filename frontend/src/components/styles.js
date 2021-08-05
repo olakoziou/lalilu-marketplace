@@ -6,6 +6,7 @@ export const colors = {
   darkgrey1: '54, 54, 54',
   darkgrey2: '74, 74, 74',
   darkgrey3: '88, 88, 88',
+  darkgrey4: '165, 165, 165',
   lightgrey1: '250, 250, 250',
   lightgrey2: '245, 245, 245',
   lightgrey3: '240, 240, 240',

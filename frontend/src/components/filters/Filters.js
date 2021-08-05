@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import LightBgc from '../LightBgc';
 import FilterDetails from './FilterDetails';
+import FilterColors from './filterDetails/FilterColors';
+import FilterPrice from './filterDetails/FilterPrice';
 import FilterItem from './FilterItem';
 
 const FilterDiv = styled.div`
@@ -15,7 +17,7 @@ function Filters() {
   const [state, setstate] = useState({ price: false, color: false });
   const [prices, setPrices] = useState({ min: 23, max: 666 });
 
-  console.log(prices);
+  // console.log(prices);
 
   const handleClick = (e) => {
     setstate((prev) => ({ ...prev, [e.target.id]: !prev[e.target.id] }));
@@ -34,7 +36,7 @@ function Filters() {
           handleClick={handleClick}
         >
           {' '}
-          <FilterDetails
+          <FilterPrice
             price
             prices={prices}
             handleRangeChange={handleRangeChange}
