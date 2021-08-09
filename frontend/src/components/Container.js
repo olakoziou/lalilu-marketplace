@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { breakpoints, colors } from './styles';
 
 const ContainerDiv = styled.div`
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Arial', sans-serif; */
   color: rgba(${colors.darkgrey1});
   width: 95%;
   margin: 0 auto;

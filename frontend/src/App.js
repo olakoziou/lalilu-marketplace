@@ -6,6 +6,8 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import CategoryPage from './pages/CategoryPage';
+import Blog from './pages/Blog';
+import SingleBlogPost from './pages/SingleBlogPost';
 
 import GlobalStyles from './globalStyles';
 import styled from 'styled-components';
@@ -44,6 +46,12 @@ function App() {
             </Route>
             <Route path="/kategorie/:name">
               <CategoryPage />
+            </Route>
+            <Route path="/blog/:title">
+              <SingleBlogPost />
+            </Route>
+            <Route path="/blog">
+              <Blog />
             </Route>
           </Switch>
         </Router>
