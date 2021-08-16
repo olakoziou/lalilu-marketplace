@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { boxShadow, breakpoints, colors } from '../../styles';
 
@@ -81,15 +82,26 @@ const SmallCard = styled.div`
 `;
 
 function ProductSmallCard({ data }) {
-  const name =
+  const nameSlice =
     data.name.length > 30 ? data.name.slice(0, 30) + '...' : data.name;
+
+  const nameUrl = data.name
+    .toLowerCase()
+    .split(' ')
+    .map((el) => {
+      return el
+        .split('')
+        .filter((el) => el !== ',' && el !== ' ')
+        .join('');
+    })
+    .join('-');
 
   return (
     <SmallCard img={data.mainImageUrl} className="product-list__item">
       <div className="image">{/* <img src={img2} alt="" /> */}</div>
       <div className="details">
         <div className="shop-name">{data.shopName}</div>
-        <div className="title">{name}</div>
+        <div className="title">{nameSlice}</div>
 
         <div className="prices">
           <div className="prices__regular">{data.price} zł</div>
@@ -100,7 +112,9 @@ function ProductSmallCard({ data }) {
             <a href="">podgląd</a>
           </div>
           <div className="see-more">
-            <a href="">zobacz</a>
+            <Link to={{ pathname: `${data.category}/${nameUrl}`, state: data }}>
+              zobacz
+            </Link>
           </div>
         </div>
       </div>

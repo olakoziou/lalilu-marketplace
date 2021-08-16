@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { breakpoints, colors } from '../styles';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const CardsContainer = styled.div`
   > div {
@@ -65,7 +65,10 @@ const Button = styled.div`
   }
 `;
 
-function BlogPostCardSmall({ data }) {
+function BlogPostCardSmall({ data, more }) {
+  const { title } = useParams();
+
+  console.log(title);
   return (
     <CardsContainer>
       {data.map((data) => {
@@ -80,7 +83,11 @@ function BlogPostCardSmall({ data }) {
                 <Content>{data.content.slice(0, 300)}...</Content>
               </ContentContainer>
               <Button>
-                <Link to={`/blog/${title}`}>więcej</Link>
+                <Link
+                  to={{ pathname: `/blog/${title}`, state: { data, more } }}
+                >
+                  więcej
+                </Link>
               </Button>
             </div>
           </div>

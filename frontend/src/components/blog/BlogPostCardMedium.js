@@ -69,7 +69,7 @@ const Button = styled.div`
   }
 `;
 
-function BlogPostCardMedium({ data }) {
+function BlogPostCardMedium({ data, more }) {
   return (
     <CardsContainer>
       {data.map((data) => {
@@ -83,7 +83,9 @@ function BlogPostCardMedium({ data }) {
               <Content>{data.content.slice(0, 300)}...</Content>
             </ContentContainer>
             <Button>
-              <Link to={`/blog/${title}`}>więcej</Link>
+              <Link to={{ pathname: `/blog/${title}`, state: { data, more } }}>
+                więcej
+              </Link>
             </Button>
           </div>
         );

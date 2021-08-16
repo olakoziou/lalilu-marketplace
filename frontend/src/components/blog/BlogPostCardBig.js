@@ -56,7 +56,7 @@ const Button = styled.div`
   }
 `;
 
-function BlogPostCardBig({ data }) {
+function BlogPostCardBig({ data, more }) {
   const title = data.title.toLowerCase().split(' ').join('-');
   return (
     <CardContainer>
@@ -68,7 +68,9 @@ function BlogPostCardBig({ data }) {
           <Content>{data.content.slice(0, 300)}...</Content>
         </ContentContainer>
         <Button>
-          <Link to={`/blog/${title}`}>więcej</Link>
+          <Link to={{ pathname: `/blog/${title}`, state: { data, more } }}>
+            więcej
+          </Link>
         </Button>
       </div>
     </CardContainer>

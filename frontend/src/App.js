@@ -8,6 +8,7 @@ import HomePage from './pages/HomePage';
 import CategoryPage from './pages/CategoryPage';
 import Blog from './pages/Blog';
 import SingleBlogPost from './pages/SingleBlogPost';
+import ProductPage from './pages/ProductPage';
 
 import GlobalStyles from './globalStyles';
 import styled from 'styled-components';
@@ -52,6 +53,9 @@ function App() {
             </Route>
             <Route path="/blog">
               <Blog />
+            </Route>
+            <Route path="/:kategoria/:produkt">
+              <ProductPage />
             </Route>
           </Switch>
         </Router>
