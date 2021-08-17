@@ -3,6 +3,7 @@ export const colors = {
   mainblue: '203, 245, 248',
   pink2: '230, 119, 119',
   yellow: '244, 175, 27',
+  yellow2: '223, 175, 27',
   darkgrey1: '54, 54, 54',
   darkgrey2: '74, 74, 74',
   darkgrey3: '88, 88, 88',

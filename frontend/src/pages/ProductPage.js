@@ -63,17 +63,31 @@ const ProductInfoContainer = styled.div`
 
   span {
     display: inline-block;
-    padding: 10px 0;
+    padding: 10px 10px 10px 0;
   }
 `;
-const ProductInfo = styled.div``;
+const ProductInfo = styled.div`
+  margin-bottom: 10px;
+`;
 const Button = styled.div`
-  background-color: rgba(${colors.yellow});
+  /* background-color: rgba(${colors.yellow}); */
+  background: linear-gradient(
+    to right,
+    rgba(${colors.yellow}),
+    rgba(${colors.yellow2})
+  );
   color: rgba(${colors.lightgrey1});
   font-weight: 700;
   width: max-content;
   padding: 8px 15px;
   border-radius: 20px;
+  box-shadow: 0 0 12px -4px rgba(${colors.darkgrey4});
+  transition: all 0.3s;
+
+  &:hover {
+    transform: scale(1.015);
+    box-shadow: 0 0 15px -3px rgba(${colors.darkgrey4});
+  }
 `;
 const Description = styled.div`
   width: 90%;
@@ -120,13 +134,19 @@ function ProductPage() {
         </ImagesContainer>
         <ProductInfoContainer>
           <ProductInfo>
-            <span>{state.name.toLowerCase()}</span>
+            <div>
+              <span>{state.name.toLowerCase()}</span>
+            </div>
             <div>
               <span>{state.price} zł</span>
               <span>{state.salePrice} zł</span>
             </div>
-            <span>rozmiary: {state.rozmiar} </span>
-            <span>kolory: {state.color[0]} </span>
+            <div>
+              <span>rozmiary: {state.rozmiar} </span>
+            </div>
+            <div>
+              <span>kolory: {state.color[0]} </span>
+            </div>
           </ProductInfo>
           <Button>zobacz w sklepie</Button>
         </ProductInfoContainer>

@@ -12,6 +12,18 @@ const ContainerDiv = styled.div`
   background-position: center;
   background-size: contain;
 
+  /* &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(${colors.darkgrey3}, 0.5);
+    backdrop-filter: blur(10px);
+    z-index: 10;
+  } */
+
   @media ${breakpoints('sm')} {
     width: 90%;
   }
